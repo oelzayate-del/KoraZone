@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+   <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KoraZone | عالم كرة القدم</title>
+
+    
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Kora<span>Zone</span>
+    </div>
+
+    <nav>
+        <a href="#matches">المباريات</a>
+        <a href="#news">الأخبار</a>
+        <a href="#standings">الترتيب</a>
+        <a href="#players">اللاعبون</a>
+        <a href="#transfers">الانتقالات</a>
+        <a href="#quiz">الألغاز</a>
+    </nav>
+
+    <input
+        class="search"
+        type="text"
+        placeholder="ابحث..."
+        id="searchInput"
+    >
+
+</header>
+
+
+<section class="hero">
+
+    <h1>كل عالم الكرة في <span>KoraZone</span></h1>
+
+    <p>
+        مباريات، أخبار، نتائج، إحصائيات، انتقالات وألغاز كرة القدم
+    </p>
+
+    <button onclick="scrollToMatches()">
+        شاهد مباريات اليوم
+    </button>
+
+</section>
+
+
+<main class="container">
+
+    <!-- Matches -->
+
+<section id="matches">
+
+        <div class="section-title">
+            <h2>⚽ مباريات اليوم</h2>
+           <button class="section-button">جميع المباريات</button>
+        </div>
+
+        <div class="matches">
+
+            <div class="match-card">
+
+                <div class="league">الدوري الإنجليزي</div>
+
+                <div class="teams">
+
+                    <div class="team">
+                        <div class="team-icon">🔴</div>
+                        أرسنال
+                    </div>
+
+                    <strong>VS</strong>
+
+                    <div class="team">
+                        <div class="team-icon">🔵</div>
+                        تشيلسي
+                    </div>
+
+                </div>
+
+                <div class="match-time">08:00 م</div>
+
+            </div>
+
+
+            <div class="match-card">
+
+                <div class="league">الدوري الإسباني</div>
+
+                <div class="teams">
+
+                    <div class="team">
+                        <div class="team-icon">🔵</div>
+                        برشلونة
+                    </div>
+
+                    <strong>VS</strong>
+
+                    <div class="team">
+                        <div class="team-icon">⚪</div>
+                        ريال مدريد
+                    </div>
+
+                </div>
+
+                <div class="match-time">10:00 م</div>
+
+            </div>
+
+
+            <div class="match-card">
+
+                <div class="league">الدوري المصري</div>
+
+                <div class="teams">
+
+                    <div class="team">
+                        <div class="team-icon">🔴</div>
+                        الأهلي
+                    </div>
+
+                    <strong>VS</strong>
+
+                    <div class="team">
+                        <div class="team-icon">⚪</div>
+                        الزمالك
+                    </div>
+
+                </div>
+
+                <div class="match-time">09:00 م</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- News -->
+
+    <section id="news" style="margin-top:55px;">
+
+        <div class="section-title">
+            <h2>📰 أحدث الأخبار</h2>
+           <button class="section-button">عرض الكل</button>
+        </div>
+
+        <div class="news">
+
+            <article class="news-card">
+
+                <div class="news-image">⚽</div>
+
+                <div class="news-content">
+
+                    <h3>أحدث أخبار كرة القدم</h3>
+
+                    <p>
+                        هنا سيتم عرض أهم الأخبار الكروية المحلية والعالمية.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-image">🔥</div>
+
+                <div class="news-content">
+
+                    <h3>آخر أخبار الانتقالات</h3>
+
+                    <p>
+                        تابع آخر التحركات والصفقات في سوق الانتقالات.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-image">🏆</div>
+
+                <div class="news-content">
+
+                    <h3>أهم البطولات</h3>
+
+                    <p>
+                        أخبار وإحصائيات أهم البطولات الأوروبية والعربية.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- Standings -->
+
+    <section id="standings" style="margin-top:55px;">
+
+        <div class="section-title">
+            <h2>📊 ترتيب الدوري</h2>
+           <button class="section-button">الدوري الإنجليزي</button>
+        </div>
+
+        <div class="table-box">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th>الفريق</th>
+                        <th>لعب</th>
+                        <th>نقاط</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>🔴 أرسنال</td>
+                        <td>10</td>
+                        <td>25</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>🔵 تشيلسي</td>
+                        <td>10</td>
+                        <td>23</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>🔵 مانشستر سيتي</td>
+                        <td>10</td>
+                        <td>21</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>🔴 ليفربول</td>
+                        <td>10</td>
+                        <td>20</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- Players -->
+
+    <section id="players" style="margin-top:55px;">
+
+        <div class="section-title">
+            <h2>👤 نجوم الكرة</h2>
+           <button class="section-button">أشهر اللاعبين</button>
+        </div>
+
+        <div class="players">
+
+            <div class="player player-salah">
+    <h3>محمد صلاح</h3>
+    <p>ليفربول</p>
+</div>
+
+<div class="player player-yamal">
+    <h3>لامين يامال</h3>
+    <p>برشلونة</p>
+</div>
+
+<div class="player player-mbappe">
+    <h3>كيليان مبابي</h3>
+    <p>ريال مدريد</p>
+</div>
+
+<div class="player player-kane">
+    <h3>هاري كين</h3>
+    <p>بايرن ميونخ</p>
+</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Transfers -->
+
+    <section id="transfers" style="margin-top:55px;">
+
+        <div class="section-title">
+            <h2>🔥 آخر الانتقالات</h2>
+            <button class="section-button">سوق الانتقالات</button>
+        </div>
+
+        <div class="transfer-box">
+
+            <div class="transfer">
+                <strong>لاعب جديد</strong>
+                <span class="arrow">←</span>
+                <strong>نادي جديد</strong>
+            </div>
+
+            <div class="transfer">
+                <strong>لاعب</strong>
+                <span class="arrow">←</span>
+                <strong>نادي</strong>
+            </div>
+
+            <div class="transfer">
+                <strong>لاعب آخر</strong>
+                <span class="arrow">←</span>
+                <strong>نادي آخر</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Quiz -->
+
+    <section id="quiz" style="margin-top:55px;">
+
+    <div class="section-title">
+
+        <h2>🧩 الألغاز</h2>
+
+        <a href="quiz.html" class="section-button quiz-page-link">
+            اختبر معلوماتك الكروية
+        </a>
+
+    </div>
+
+
+    <div class="quiz">
+
+        <div class="quiz-progress">
+            <div id="quizProgress"></div>
+        </div>
+
+        <p id="quizQuestion">
+            اضغط على ابدأ اللغز لبدء التحدي 🔥
+        </p>
+
+        <div id="quizOptions"></div>
+
+        <div class="quiz-actions">
+
+            <button onclick="startQuiz()" id="quizStart">
+                ابدأ اللغز
+            </button>
+
+        </div>
+
+        <p id="quizScore">
+            النقاط: 0
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <h2>KoraZone ⚽</h2>
+
+    <p>
+        موقع كرة قدم لعشاق اللعبة في كل مكان
+    </p>
+
+    <p>
+        © 2026 KoraZone - جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

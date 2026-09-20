@@ -1,0 +1,1550 @@
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background: #f4f6f8;
+            color: #17202a;
+        }
+
+        /* ===== Header ===== */
+
+        header {
+            background: #071b2d;
+            color: white;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00d084;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d084;
+        }
+
+        .search {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            padding: 9px 15px;
+            width: 180px;
+            outline: none;
+        }
+
+        /* ===== Hero ===== */
+
+        .hero {
+            background: linear-gradient(135deg, #071b2d, #0c344d);
+            color: white;
+            padding: 70px 6%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #00d084;
+        }
+
+        .hero p {
+            color: #d6e0e7;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            background: #00d084;
+            border: none;
+            padding: 13px 28px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* ===== General ===== */
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 25px;
+        }
+
+        .section-title span {
+            color: #00a86b;
+            font-size: 14px;
+        }
+
+        /* ===== Matches ===== */
+
+        .matches {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .match-card {
+            background: white;
+            border-radius: 15px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .league {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .teams {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .team {
+            font-weight: bold;
+        }
+
+        .team-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #e9eef2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 8px auto;
+            font-size: 20px;
+        }
+
+        .match-time {
+            color: #00a86b;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* ===== News ===== */
+
+        .news {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .news-image {
+            height: 160px;
+            background: linear-gradient(135deg, #12344d, #00a86b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 45px;
+        }
+
+        .news-content {
+            padding: 18px;
+        }
+
+        .news-content h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .news-content p {
+            color: #777;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ===== Standings ===== */
+
+        .table-box {
+            background: white;
+            border-radius: 15px;
+            overflow-x: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #071b2d;
+            color: white;
+        }
+
+        /* ===== Players ===== */
+
+        .players {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .player {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .player-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #dfe7ec;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .player h3 {
+            margin-bottom: 5px;
+        }
+
+        .player p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* ===== Transfer ===== */
+
+        .transfer-box {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .transfer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .transfer:last-child {
+            border-bottom: none;
+        }
+
+        .arrow {
+            color: #00a86b;
+            font-size: 22px;
+        }
+
+        /* ===== Quiz ===== */
+
+        .quiz {
+            background: linear-gradient(135deg, #071b2d, #123d56);
+            color: white;
+            border-radius: 18px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .quiz h2 {
+            margin-bottom: 12px;
+        }
+
+        .quiz p {
+            color: #d4dde3;
+            margin-bottom: 20px;
+        }
+
+        .quiz button {
+            background: #00d084;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ===== Footer ===== */
+
+        footer {
+            background: #071b2d;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: #aebbc4;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        /* ===== Responsive ===== */
+
+        @media (max-width: 900px) {
+
+            header {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .matches,
+            .news {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .players {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .search {
+                width: 100%;
+            }
+
+            .matches,
+            .news,
+            .players {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+    .quiz-progress {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#quizProgress {
+    width: 0%;
+    height: 100%;
+    background: #22c55e;
+    transition: width 0.4s ease;
+}
+}
+/* أزرار KoraZone */
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+/* أزرار KoraZone الاحترافية */
+
+.hero button,
+#quizStart {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white;
+    border: none;
+    padding: 13px 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(34, 197, 94, 0.25);
+    transition: all 0.3s ease;
+}
+
+.hero button:hover,
+#quizStart:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+}
+
+.hero button:active,
+#quizStart:active {
+    transform: scale(0.96);
+}
+/* كروت المباريات الاحترافية */
+
+.match-card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+.match-card .league {
+    font-size: 14px;
+    font-weight: bold;
+    color: #16a34a;
+    margin-bottom: 18px;
+}
+
+.match-card .teams {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.match-card .match-time {
+    margin-top: 18px;
+    background: #f0fdf4;
+    color: #15803d;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block;
+}
+/* كروت الأخبار الاحترافية */
+
+.news-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+.news-image {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    background: #f0fdf4;
+}
+
+.news-content {
+    padding: 18px;
+}
+
+.news-content h3 {
+    margin: 0 0 10px;
+    font-size: 19px;
+}
+
+.news-content p {
+    margin: 0;
+    color: #666;
+    line-height: 1.7;
+}
+/* كروت اللاعبين */
+
+.player {
+    height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: #064e3b;
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    color: white;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.player:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.player::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        transparent 35%,
+        rgba(0, 0, 0, 0.85)
+    );
+}
+
+.player h3,
+.player p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.player h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.player p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.player-salah {
+    background-image: url("images/salah.jpg");
+}
+
+.player-yamal {
+    background-image: url("images/yamal.jpg");
+}
+
+.player-mbappe {
+    background-image: url("images/mbappe.jpg");
+}
+
+.player-kane {
+    background-image: url("images/kane.jpg");
+}
+/* =========================================
+   KoraZone - Bright Dynamic Background
+   ========================================= */
+
+body {
+    position: relative;
+    background: #06251a;
+    overflow-x: hidden;
+}
+
+/* الإضاءة الرئيسية */
+body::before {
+    content: "";
+    position: fixed;
+    width: 160%;
+    height: 160%;
+    left: -30%;
+    top: -30%;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 12% 22%,
+            rgba(34, 197, 94, 0.42),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 82% 72%,
+            rgba(16, 185, 129, 0.34),
+            transparent 22%
+        ),
+
+        radial-gradient(
+            circle at 55% 12%,
+            rgba(74, 222, 128, 0.25),
+            transparent 18%
+        ),
+
+        radial-gradient(
+            circle at 35% 80%,
+            rgba(34, 197, 94, 0.20),
+            transparent 20%
+        ),
+
+        linear-gradient(
+            120deg,
+            transparent 25%,
+            rgba(34, 197, 94, 0.16) 26%,
+            transparent 28%
+        ),
+
+        linear-gradient(
+            35deg,
+            transparent 45%,
+            rgba(74, 222, 128, 0.13) 46%,
+            transparent 48%
+        );
+
+    filter: blur(1px);
+
+    animation: koraEnergy 7s ease-in-out infinite alternate;
+}
+
+
+/* الخطوط المتحركة */
+body::after {
+    content: "";
+    position: fixed;
+    width: 180%;
+    height: 180%;
+    left: -40%;
+    top: -40%;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+
+        repeating-linear-gradient(
+            125deg,
+            transparent 0px,
+            transparent 50px,
+            rgba(74, 222, 128, 0.13) 52px,
+            transparent 55px,
+            transparent 125px
+        ),
+
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 95px,
+            rgba(34, 197, 94, 0.10) 97px,
+            transparent 100px,
+            transparent 200px
+        ),
+
+        linear-gradient(
+            135deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.035) 36%,
+            transparent 37%
+        );
+
+    animation: koraLines 9s linear infinite;
+}
+
+
+/* محتوى الموقع فوق الخلفية */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* حركة الإضاءة */
+@keyframes koraEnergy {
+
+    0% {
+        transform:
+            translate(-10%, -6%)
+            rotate(0deg)
+            scale(1);
+    }
+
+    25% {
+        transform:
+            translate(6%, -9%)
+            rotate(2deg)
+            scale(1.05);
+    }
+
+    50% {
+        transform:
+            translate(12%, 6%)
+            rotate(-2deg)
+            scale(1.10);
+    }
+
+    75% {
+        transform:
+            translate(-6%, 12%)
+            rotate(2deg)
+            scale(1.06);
+    }
+
+    100% {
+        transform:
+            translate(-12%, -6%)
+            rotate(-2deg)
+            scale(1);
+    }
+}
+
+
+/* حركة الخطوط */
+@keyframes koraLines {
+
+    0% {
+        transform:
+            translate(-10%, -10%)
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translate(6%, -3%)
+            rotate(2deg);
+    }
+
+    50% {
+        transform:
+            translate(12%, 10%)
+            rotate(4deg);
+    }
+
+    75% {
+        transform:
+            translate(-4%, 12%)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            translate(-10%, -10%)
+            rotate(0deg);
+    }
+}
+
+
+/* زيادة الحركة عند التفاعل */
+body:hover::before {
+    animation-duration: 5s;
+}
+
+body:hover::after {
+    animation-duration: 6s;
+}
+
+
+/* تقليل الحركة عند الحاجة */
+@media (prefers-reduced-motion: reduce) {
+
+    body::before,
+    body::after {
+        animation: none;
+    }
+
+}
+/* تثبيت شريط التنقل أثناء التمرير */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+/* أزرار عناوين الأقسام */
+
+./* أزرار عناوين الأقسام */
+
+.section-button {
+    background-color: #22c55e !important;
+    background-image: linear-gradient(135deg, #16a34a, #22c55e) !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+    outline: none !important;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(255, 255, 255, 0.25),
+        0 7px 18px rgba(34, 197, 94, 0.3);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-button:hover {
+    background-color: #22c55e !important;
+    background-image: linear-gradient(135deg, #15803d, #22c55e) !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 16px rgba(255, 255, 255, 0.35),
+        0 11px 25px rgba(34, 197, 94, 0.4);
+}
+
+.section-button:active {
+    transform: translateY(0);
+}
+.section-title .section-button {
+    background: #22c55e !important;
+    background-image: linear-gradient(135deg, #16a34a, #22c55e) !important;
+    color: #fff !important;
+    border: none !important;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 12px rgba(255, 255, 255, 0.25),
+        0 7px 18px rgba(34, 197, 94, 0.30);
+
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.section-title .section-button:hover {
+    background: #22c55e !important;
+    background-image: linear-gradient(135deg, #15803d, #22c55e) !important;
+    color: #fff !important;
+}
+/* زر اختبر معلوماتك الكروية */
+
+.section-title .quiz-page-link {
+    background: #22c55e !important;
+    background-image: linear-gradient(135deg, #16a34a, #22c55e) !important;
+    color: #fff !important;
+
+    text-decoration: none;
+
+    border: none !important;
+    outline: none !important;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(255, 255, 255, 0.25),
+        0 7px 18px rgba(34, 197, 94, 0.30);
+
+    transition: 0.3s ease;
+}
+
+.section-title .quiz-page-link:hover {
+    transform: translateY(-3px);
+
+    background-image: linear-gradient(
+        135deg,
+        #15803d,
+        #22c55e
+    ) !important;
+
+    box-shadow:
+        0 6px 16px rgba(255, 255, 255, 0.35),
+        0 11px 25px rgba(34, 197, 94, 0.40);
+}
+
+
+/* مكان أزرار نهاية التحدي */
+
+.quiz-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* زر تحدي جديد */
+
+.quiz-new-button {
+    display: inline-block;
+
+    background: linear-gradient(
+        135deg,
+        #16a34a,
+        #22c55e
+    );
+
+    color: white !important;
+
+    text-decoration: none;
+
+    border: none;
+
+    padding: 13px 22px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(255, 255, 255, 0.25),
+        0 7px 18px rgba(34, 197, 94, 0.30);
+
+    transition: 0.3s ease;
+}
+
+.quiz-new-button:hover {
+    transform: translateY(-3px);
+
+    background: linear-gradient(
+        135deg,
+        #15803d,
+        #22c55e
+    );
+
+    box-shadow:
+        0 6px 16px rgba(255, 255, 255, 0.35),
+        0 11px 25px rgba(34, 197, 94, 0.40);
+}
+<div class="quiz-grid">
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">01</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">02</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">03</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">04</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">05</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">06</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">07</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">08</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">09</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">10</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">11</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+    <div class="quiz-card">
+        <div class="quiz-card-number">12</div>
+        <div class="quiz-card-title">لغز كرة القدم</div>
+        <a href="#" class="quiz-start-button">ابدأ اللغز</a>
+    </div>
+
+</div>
+/* ===== صفحة الألغاز ===== */
+
+.quiz-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.quiz-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px !important;
+    margin-top: 30px;
+}
+
+.quiz-card {
+    height: 260px !important;
+    background: linear-gradient(145deg, #071b2d, #123d56) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-card-number {
+    font-size: 42px;
+    font-weight: bold;
+    color: #22c55e;
+    margin-top: 5px;
+}
+
+.quiz-card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+}
+
+.quiz-start-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 150px;
+    padding: 12px 0;
+    
+    background: #22c55e;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.quiz-start-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+    background: #16a34a;
+}
+
+
+/* التابلت */
+
+@media (max-width: 900px) {
+
+    .quiz-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+}
+
+
+/* الموبايل */
+
+@media (max-width: 600px) {
+
+    .quiz-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .quiz-card {
+        height: 240px !important;
+    }
+
+}
+/* ===== تنسيق صفحة Top 10 ===== */
+
+.top10-page {
+    width: 90%;
+    max-width: 850px;
+    margin: 50px auto;
+}
+
+.top10-list {
+    width: 100%;
+    margin: 30px auto 0;
+}
+
+.top10-search-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+#playerSearch {
+    width: 500px;
+    height: 58px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    border-radius: 12px;
+    border: 2px solid #22c55e;
+    background: #071b2d;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+}
+
+#playerSearch::placeholder {
+    color: #aaa;
+}
+
+#giveUpButton {
+    height: 58px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 12px;
+    background: #123d56;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#giveUpButton:hover {
+    background: #22c55e;
+}
+
+#searchResults {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#wrongMessage {
+    text-align: center;
+    color: #ef4444;
+    font-size: 18px;
+    margin-top: 12px;
+}
+#quizTitle {
+    color: white !important;
+    text-align: center;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    margin-bottom: 30px;
+}
+.top10-page .section-title {
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.top10-page #quizTitle {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto 30px !important;
+}
+.top10-page #quizTitle {
+   transform: translateX(23px);
+}
+.top10-page .section-title {
+    position: relative !important;
+    left: 23px !important;
+}
+
+.top10-page #quizTitle {
+    transform: none !important;
+}
+/* ===== مستطيلات Top 10 ===== */
+
+.top10-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 30px auto;
+}
+
+.top10-player {
+    width: 100%;
+    height: 65px;
+    background: #071b2d;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 0 20px;
+
+    color: white;
+}
+
+.player-rank {
+    width: 35px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.player-flag {
+    margin-right: 20px;
+    font-size: 22px;
+}
+
+.player-name {
+    font-size: 19px;
+    font-weight: bold;
+    color: white;
+}
+.top10-list {
+    width: 70% !important;
+    max-width: 500px !important;
+    margin: 30px auto !important;
+    gap: 8px !important;
+}
+
+.top10-player {
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 12px !important;
+    border-radius: 9px !important;
+}
+
+.player-rank {
+    width: 25px !important;
+    font-size: 17px !important;
+}
+
+.player-flag {
+    margin-right: 12px !important;
+    font-size: 18px !important;
+}
+.player-flag {
+    width: 28px !important;
+    height: auto !important;
+    margin-right: 12px !important;
+    object-fit: contain;
+}
+/* ===== شكل مستطيلات Top 10 ===== */
+
+.top10-player {
+    background: #182b3a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    height: 48px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+}
+
+.player-rank {
+    color: white !important;
+    width: 30px !important;
+    text-align: center !important;
+}
+
+.player-flag {
+    width: 28px !important;
+    height: auto !important;
+    margin-right: 18px !important;
+    object-fit: contain !important;
+}
+
+.player-name {
+    display: none !important;
+    color: white !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+}
+/* ===== تحسين البحث في Top 10 ===== */
+
+
+#searchResults button {
+    min-width: 280px !important;
+    min-height: 48px !important;
+    padding: 12px 25px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+.top10-search-area {
+    position: sticky !important;
+    bottom: 10px !important;
+    z-index: 100 !important;
+
+    width: 55% !important;
+    max-width: 400px !important;
+
+    margin: 12px auto 0 !important;
+
+    display: flex !important;
+    gap: 8px !important;
+
+    background: #071b2d !important;
+    padding: 8px !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+}
+.top10-page {
+    padding-bottom: 150px !important;
+}
+/* ===== تصغير صفحة Top 10 ===== */
+
+.top10-page {
+    padding-bottom: 20px !important;
+}
+
+.top10-list {
+    width: 55% !important;
+    max-width: 400px !important;
+    gap: 5px !important;
+    margin: 15px auto !important;
+}
+
+.top10-player {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 10px !important;
+    border-radius: 7px !important;
+}
+
+.player-rank {
+    width: 22px !important;
+    font-size: 14px !important;
+}
+
+.player-flag {
+    width: 22px !important;
+    margin-right: 10px !important;
+}
+
+.player-name {
+    font-size: 14px !important;
+}
+
+.top10-search-area {
+    width: 55% !important;
+    max-width: 400px !important;
+    margin: 12px auto 0 !important;
+    display: flex !important;
+    gap: 8px !important;
+}
+
+#playerSearch {
+    width: 100% !important;
+    height: 42px !important;
+    font-size: 16px !important;
+}
+
+#giveUpButton {
+    height: 42px !important;
+    padding: 0 15px !important;
+    font-size: 15px !important;
+}
+
+/* نتائج البحث */
+
+#searchResults {
+    width: 55% !important;
+    max-width: 400px !important;
+    max-height: 230px !important;
+    overflow-y: auto !important;
+    margin: 8px auto 0 !important;
+}
+
+#searchResults button {
+    width: 100% !important;
+    min-height: 38px !important;
+    padding: 7px 12px !important;
+    margin: 4px 0 !important;
+    font-size: 15px !important;
+}
+.top10-page {
+    padding-bottom: 250px !important;
+}
+.top10-search-area {
+    margin: 12px auto 0 !important;
+}
+/* ===== ضبط الموقع للموبايل ===== */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 10px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+
+    main {
+        width: 94% !important;
+        max-width: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box;
+    }
+
+    .section-title {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .section-title h1,
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .matches,
+    .news,
+    .players {
+        grid-template-columns: 1fr !important;
+    }
+
+    .quiz-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .quiz-card {
+        height: 220px !important;
+    }
+
+    .top10-page {
+        width: 94% !important;
+    }
+
+    .top10-list {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .top10-search-area {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    #playerSearch {
+        min-width: 0;
+        font-size: 15px !important;
+    }
+
+    #giveUpButton {
+        padding: 0 12px !important;
+        white-space: nowrap;
+    }
+}
