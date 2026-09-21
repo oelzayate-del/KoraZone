@@ -3,7 +3,7 @@ let koraPlayersLoaded = false;
 
 async function loadKoraPlayers() {
     try {
-        const response = await fetch("data/kora_names.csv");
+        const response = await fetch("kora_names.csv");
 
         if (!response.ok) {
             throw new Error("لم يتم العثور على ملف اللاعبين");
